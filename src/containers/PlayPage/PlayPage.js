@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '../../components/Card/Cardd';
 import './PlayPage.css'
 const PlayPage = () => {
     // deck logic
@@ -8,7 +9,7 @@ const PlayPage = () => {
     //
     return (
         <>
-
+            <Card/>
         </>
     )
 }
