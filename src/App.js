@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import LandingPage from './containers/LandingPage/LandingPage';
 import {Switch, Route} from 'react-router-dom';
 import PlayPage from './containers/PlayPage/PlayPage';
