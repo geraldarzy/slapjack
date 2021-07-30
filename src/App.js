@@ -1,6 +1,7 @@
 import './App.css';
 import LandingPage from './containers/LandingPage/LandingPage';
 import {Switch, Route} from 'react-router-dom';
+import PlayPage from './containers/PlayPage/PlayPage';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       </Route>
  
       <Route exact path='/play'> 
-        
+        <PlayPage/>
       </Route>
  
     </Switch>
