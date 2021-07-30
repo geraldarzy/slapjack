@@ -10,7 +10,11 @@ function App() {
       <Route exact path='/'> 
           <LandingPage />
       </Route>
-
+ 
+      <Route exact path='/play'> 
+        
+      </Route>
+ 
     </Switch>
       
     </>
