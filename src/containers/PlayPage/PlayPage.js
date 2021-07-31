@@ -75,10 +75,18 @@ const PlayPage = () => {
     
     debugger;
     //
+
+    const displayCards = (deck) => {
+        let cards=[]
+        for(let [key,value] of Object.entries(deck)){
+            cards.push(<Card image={value} name={key}/>)
+        }
+        return cards
+    }
     return (
         <>
             {
-                deck.map(image=> <Card image={image}/>)
+               displayCards(deck) 
             }
         </>
     )

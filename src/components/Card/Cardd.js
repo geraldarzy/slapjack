@@ -2,10 +2,10 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import './Cardd.css'
 
-const Cardd = ({image}) => {
+const Cardd = ({image, name}) => {
     return (
         <>
-            <img src={image}/>
+            <img src={image} id={name}/>
         </>
     )
 }
