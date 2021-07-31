@@ -66,12 +66,12 @@ const PlayPage = () => {
     // const hearts = [aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts ];
     // const clubs = [aceClubs, twoClubs, threeClubs, fourClubs, fiveClubs, sixClubs, sevenClubs, eightClubs, nineClubs, tenClubs, jackClubs, queenClubs, kingClubs ];
     // const diamonds = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds ];
-    const deck = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds,
-                    aceClubs, twoClubs, threeClubs, fourClubs, fiveClubs, sixClubs, sevenClubs, eightClubs, nineClubs, tenClubs, jackClubs, queenClubs, kingClubs,
-                    aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts,
-                    aceSpades, twoSpades, threeSpades, fourSpades, fiveSpades, sixSpades, sevenSpades, eightSpades, nineSpades, tenSpades, jackSpades, queenSpades, kingSpades 
+    const deck = { 'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
+                    'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
+                    'aceHearts':aceHearts, 'twoHearts':twoHearts, 'threeHearts':threeHearts, 'fourHearts':fourHearts, 'fiveHearts':fiveHearts, 'sixHearts':sixHearts, 'sevenHearts':sevenHearts, 'eightHearts':eightHearts, 'nineHearts':nineHearts, 'tenHearts':tenHearts, 'jackHearts':jackHearts, 'queenHearts':queenHearts, 'kingHearts':kingHearts,
+                    'aceSpades':aceSpades, 'twoSpades':twoSpades, 'threeSpades':threeSpades, 'fourSpades':fourSpades, 'fiveSpades':fiveSpades, 'sixSpades':sixSpades, 'sevenSpades':sevenSpades, 'eightSpades':eightSpades, 'nineSpades':nineSpades, 'tenSpades':tenSpades, 'jackSpades':jackSpades, 'queenSpades':queenSpades, 'kingSpades':kingSpades 
 
-                ]
+                }
     
     debugger;
     //
