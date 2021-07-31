@@ -94,6 +94,9 @@ const PlayPage = () => {
         // retrieve from array but mutate object for best time complexity
         // retrieve from array because we can only generate random index number and not random card name
         let index = Object.entries(deck);
+        if(index.length < 1){
+            return setCurrentCardKey('blankCard'), setCurrentCardVal(blankCard);
+        }
         let randomCardNumber = Math.floor(Math.random() * index.length); 
         let [cardKey,cardVal] = index[randomCardNumber];
         delete deck[cardKey];
