@@ -77,11 +77,9 @@ const PlayPage = () => {
     //
     return (
         <>
-            <Card/>
             {
-                deck.map(card=><img src={card}/>)
+                deck.map(image=> <Card image={image}/>)
             }
-            <img src={twoClubs}/>
         </>
     )
 }
