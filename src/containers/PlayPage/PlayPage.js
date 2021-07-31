@@ -55,8 +55,10 @@ import jackDiamonds from '../../pictures/cards-png/diamonds/JDiamonds.png'
 import kingDiamonds from '../../pictures/cards-png/diamonds/KDiamonds.png'
 import queenDiamonds from '../../pictures/cards-png/diamonds/QDiamonds.png'
 import aceDiamonds from '../../pictures/cards-png/diamonds/ADiamonds.png'
+
+import blankCard from '../../pictures/cards-png/blank.png'
 //
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../../components/Card/Cardd';
 import './PlayPage.css'
 
@@ -66,28 +68,41 @@ const PlayPage = () => {
     // const hearts = [aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts ];
     // const clubs = [aceClubs, twoClubs, threeClubs, fourClubs, fiveClubs, sixClubs, sevenClubs, eightClubs, nineClubs, tenClubs, jackClubs, queenClubs, kingClubs ];
     // const diamonds = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds ];
-    const deck = { 'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
-                    'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
-                    'aceHearts':aceHearts, 'twoHearts':twoHearts, 'threeHearts':threeHearts, 'fourHearts':fourHearts, 'fiveHearts':fiveHearts, 'sixHearts':sixHearts, 'sevenHearts':sevenHearts, 'eightHearts':eightHearts, 'nineHearts':nineHearts, 'tenHearts':tenHearts, 'jackHearts':jackHearts, 'queenHearts':queenHearts, 'kingHearts':kingHearts,
-                    'aceSpades':aceSpades, 'twoSpades':twoSpades, 'threeSpades':threeSpades, 'fourSpades':fourSpades, 'fiveSpades':fiveSpades, 'sixSpades':sixSpades, 'sevenSpades':sevenSpades, 'eightSpades':eightSpades, 'nineSpades':nineSpades, 'tenSpades':tenSpades, 'jackSpades':jackSpades, 'queenSpades':queenSpades, 'kingSpades':kingSpades 
+    const [currentCardKey, setCurrentCardKey] = (useState('blankCard'))
+    const [currentCardVal, setCurrentCardVal] = (useState(blankCard))
+    const [deck, setDeck] = (useState(
+        {   'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
+            'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
+            'aceHearts':aceHearts, 'twoHearts':twoHearts, 'threeHearts':threeHearts, 'fourHearts':fourHearts, 'fiveHearts':fiveHearts, 'sixHearts':sixHearts, 'sevenHearts':sevenHearts, 'eightHearts':eightHearts, 'nineHearts':nineHearts, 'tenHearts':tenHearts, 'jackHearts':jackHearts, 'queenHearts':queenHearts, 'kingHearts':kingHearts,
+            'aceSpades':aceSpades, 'twoSpades':twoSpades, 'threeSpades':threeSpades, 'fourSpades':fourSpades, 'fiveSpades':fiveSpades, 'sixSpades':sixSpades, 'sevenSpades':sevenSpades, 'eightSpades':eightSpades, 'nineSpades':nineSpades, 'tenSpades':tenSpades, 'jackSpades':jackSpades, 'queenSpades':queenSpades, 'kingSpades':kingSpades 
 
-                }
-    
-    debugger;
-    //
-
-    const displayCards = (deck) => {
-        let cards=[]
-        for(let [key,value] of Object.entries(deck)){
-            cards.push(<Card image={value} name={key}/>)
         }
-        return cards
+    ))
+    //
+    
+    // const displayCards = (deck) => {
+        //     let cards=[]
+        //     for(let [key,value] of Object.entries(deck)){
+            //         cards.push(<Card image={value} name={key}/>)
+            //     }
+            //     return cards
+            // }
+    const currentCard = () =>{
+        return <Card image={currentCardVal} name={currentCardKey}/>
+    } 
+    const retrieveAndRemoveRandom = () => {
+        // retrieve from array but mutate object for best time complexity
+        // retrieve from array because we can only generate random index number and not random card name
+        let index = Object.entries(deck);
+        let randomCardNumber = Math.floor(Math.random() * index.length); 
+        let [cardKey,cardVal] = index[randomCardNumber];
+        delete deck[cardKey];
+        return setCurrentCardKey(cardKey), setCurrentCardVal(cardVal);
     }
     return (
         <>
-            {
-               displayCards(deck) 
-            }
+            {currentCard()}
+            <button onClick={retrieveAndRemoveRandom}>Next Card</button>
         </>
     )
 }
