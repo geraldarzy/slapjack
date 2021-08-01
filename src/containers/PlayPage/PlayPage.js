@@ -61,6 +61,8 @@ import blankCard from '../../pictures/cards-png/blank.png'
 import React, { useState } from 'react'
 import Card from '../../components/Card/Cardd';
 import './PlayPage.css'
+import useKeypress from 'react-use-keypress';
+
 
 const PlayPage = () => {
     // deck logic
@@ -81,6 +83,9 @@ const PlayPage = () => {
 
         }
     ))
+    useKeypress(' ', (e) => {
+        console.log(e)
+    });
     
     // const displayCards = (deck) => {
         //     let cards=[]
