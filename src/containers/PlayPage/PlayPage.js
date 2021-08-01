@@ -101,10 +101,12 @@ const PlayPage = () => {
         //get the random card
         let [cardKey,cardVal] = index[randomCardNumber];
         //push random card into pile of seen cards and delete from unseen deck
-        console.log(seenDeck,'from inside')
+        // there has to be a more elegeant way to do thi
+        // could do seenDeck[`${cardKey}`] = cardVal
+        // but how do we utilize object.assign for this
+        // setSeenDeck(Object.assign(seenDeck,{cardKey:cardVal})); is what i want to do
         let newObj = {};
         newObj[`${cardKey}`] = cardVal
-        console.log(newObj,'about to be put in')
         setSeenDeck(Object.assign(seenDeck,newObj))
         debugger;
         delete deck[cardKey];
