@@ -129,7 +129,7 @@ const PlayPage = () => {
     return (
         <>
             {currentCard()}
-            <button onClick={retrieveAndRemoveRandom}>Next Card</button>
+            <p onClick={retrieveAndRemoveRandom}>Next Card</p>
         </>
     )
 }
