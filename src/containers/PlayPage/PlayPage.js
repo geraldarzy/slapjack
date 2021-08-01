@@ -83,8 +83,17 @@ const PlayPage = () => {
 
         }
     ))
-    useKeypress(' ', (e) => {
-        console.log(e)
+    useKeypress(['Enter', ' '], (e) => {
+        console.log(e);
+        if(e.code === 'Space'){
+            console.log('clicked Space');
+            changePlayer1PointsBy(1);
+        }
+
+        if(e.code === 'Enter'){
+            console.log('clicked Enter');
+            changePlayer2PointsBy(1);
+        }
     });
     
     // const displayCards = (deck) => {
@@ -120,16 +129,22 @@ const PlayPage = () => {
     }
 
     const changePlayer1PointsBy = (x) =>{
-        player1[`${Object.keys(player1)[0]}`] = player1[`${Object.keys(player1)[0]}`] + x
+        let newObj = {};
+        newObj[`${Object.keys(player1)[0]}`] = player1[`${Object.keys(player1)[0]}`] + x
+        setPlayer1(newObj)
     }
 
     const changePlayer2PointsBy = (x) =>{
-        player2[`${Object.keys(player2)[0]}`] = player2[`${Object.keys(player2)[0]}`] + x
+        let newObj = {};
+        newObj[`${Object.keys(player2)[0]}`] = player2[`${Object.keys(player2)[0]}`] + x
+        setPlayer2(newObj)
     }
     return (
         <>
             {currentCard()}
             <p onClick={retrieveAndRemoveRandom}>Next Card</p>
+            <p>Player 1: {Object.values(player1)}</p>
+            <p>Player 2: {Object.values(player2)}</p>
         </>
     )
 }
