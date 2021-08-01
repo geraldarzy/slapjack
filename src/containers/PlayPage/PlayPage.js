@@ -68,6 +68,8 @@ const PlayPage = () => {
     // const hearts = [aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts ];
     // const clubs = [aceClubs, twoClubs, threeClubs, fourClubs, fiveClubs, sixClubs, sevenClubs, eightClubs, nineClubs, tenClubs, jackClubs, queenClubs, kingClubs ];
     // const diamonds = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds ];
+    const [player1, setPlayer1] = (useState({'Arzy':0}))
+    const [player2, setPlayer2] = (useState({'Popoy':0}))
     const [currentCardKey, setCurrentCardKey] = (useState('blankCard'))
     const [currentCardVal, setCurrentCardVal] = (useState(blankCard))
     const [seenDeck,setSeenDeck] = useState({})
@@ -108,9 +110,16 @@ const PlayPage = () => {
         let newObj = {};
         newObj[`${cardKey}`] = cardVal
         setSeenDeck(Object.assign(seenDeck,newObj))
-        debugger;
         delete deck[cardKey];
         return setCurrentCardKey(cardKey), setCurrentCardVal(cardVal);
+    }
+
+    const changePlayer1PointsBy = (x) =>{
+        player1[`${Object.keys(player1)[0]}`] = player1[`${Object.keys(player1)[0]}`] + x
+    }
+
+    const changePlayer2PointsBy = (x) =>{
+        player2[`${Object.keys(player2)[0]}`] = player2[`${Object.keys(player2)[0]}`] + x
     }
     return (
         <>
