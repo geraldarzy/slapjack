@@ -86,13 +86,22 @@ const PlayPage = () => {
     useKeypress(['Enter', ' '], (e) => {
         console.log(e);
         if(e.code === 'Space'){
-            console.log('clicked Space');
-            changePlayer1PointsBy(1);
+            console.log('Player 1 clicked Space');
+            if(currentCardKey.includes('jack')){
+                changePlayer1PointsBy(Object.keys(seenDeck).length);
+                retrieveAndRemoveRandom();
+            } else {
+                changePlayer1PointsBy(-5);
+            }
         }
 
         if(e.code === 'Enter'){
-            console.log('clicked Enter');
-            changePlayer2PointsBy(1);
+            if(currentCardKey.includes('jack')){
+                changePlayer2PointsBy(Object.keys(seenDeck).length);
+                retrieveAndRemoveRandom();
+            } else {
+                changePlayer2PointsBy(-5);
+            }
         }
     });
     
