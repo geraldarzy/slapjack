@@ -70,6 +70,7 @@ const PlayPage = () => {
     // const diamonds = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds ];
     const [currentCardKey, setCurrentCardKey] = (useState('blankCard'))
     const [currentCardVal, setCurrentCardVal] = (useState(blankCard))
+    const [seenDeck,setSeenDeck] = useState({})
     const [deck, setDeck] = (useState(
         {   'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
             'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
@@ -78,7 +79,6 @@ const PlayPage = () => {
 
         }
     ))
-    //
     
     // const displayCards = (deck) => {
         //     let cards=[]
@@ -98,7 +98,15 @@ const PlayPage = () => {
             return setCurrentCardKey('blankCard'), setCurrentCardVal(blankCard);
         }
         let randomCardNumber = Math.floor(Math.random() * index.length); 
+        //get the random card
         let [cardKey,cardVal] = index[randomCardNumber];
+        //push random card into pile of seen cards and delete from unseen deck
+        console.log(seenDeck,'from inside')
+        let newObj = {};
+        newObj[`${cardKey}`] = cardVal
+        console.log(newObj,'about to be put in')
+        setSeenDeck(Object.assign(seenDeck,newObj))
+        debugger;
         delete deck[cardKey];
         return setCurrentCardKey(cardKey), setCurrentCardVal(cardVal);
     }
