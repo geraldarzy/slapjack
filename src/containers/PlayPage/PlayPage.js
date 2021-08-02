@@ -64,7 +64,7 @@ import './PlayPage.css'
 import useKeypress from 'react-use-keypress';
 
 
-const PlayPage = () => {
+const PlayPage = (props) => {
     // deck logic
     // const spades = [aceSpades, twoSpades, threeSpades, fourSpades, fiveSpades, sixSpades, sevenSpades, eightSpades, nineSpades, tenSpades, jackSpades, queenSpades, kingSpades ];
     // const hearts = [aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts ];
@@ -156,6 +156,7 @@ const PlayPage = () => {
             <p>Player 1: {Object.values(player1)}</p>
             <p>Player 2: {Object.values(player2)}</p>
             <p>Seen Deck: {Object.keys(seenDeck).length}</p>
+            <button onClick={()=>console.log(props)}>here</button>
         </>
     )
 }
