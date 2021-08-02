@@ -84,12 +84,12 @@ const PlayPage = () => {
         }
     ))
     useKeypress(['Enter', ' '], (e) => {
-        console.log(e);
         if(e.code === 'Space'){
             console.log('Player 1 clicked Space');
             if(currentCardKey.includes('jack')){
                 changePlayer1PointsBy(Object.keys(seenDeck).length);
                 retrieveAndRemoveRandom();
+                setSeenDeck({})
             } else {
                 changePlayer1PointsBy(-5);
             }
@@ -99,6 +99,7 @@ const PlayPage = () => {
             if(currentCardKey.includes('jack')){
                 changePlayer2PointsBy(Object.keys(seenDeck).length);
                 retrieveAndRemoveRandom();
+                setSeenDeck({})
             } else {
                 changePlayer2PointsBy(-5);
             }
@@ -154,6 +155,7 @@ const PlayPage = () => {
             <p onClick={retrieveAndRemoveRandom}>Next Card</p>
             <p>Player 1: {Object.values(player1)}</p>
             <p>Player 2: {Object.values(player2)}</p>
+            <p>Seen Deck: {Object.keys(seenDeck).length}</p>
         </>
     )
 }
