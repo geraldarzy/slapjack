@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './LandingPage.css'
 import { useHistory } from 'react-router-dom';
 import  Form  from '../../components/Form/Form';
+import Button from 'react-bootstrap/Button';
+import HowToModal from '../../components/HowToModal/HowToModal';
 const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name}) => {
     const history = useHistory();
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => setShowModal(false);
+    const handleShowModal = () => setShowModal(true);
     return (
-        <div id='homePage'>
+        <>
+        <div id='homePageBG'>
+        </div>
+        <div id='homePageContent'>
             <h1>Welcome to SlapJack</h1>
             <Form
                 setPlayer1Name={setPlayer1Name}
@@ -13,11 +21,20 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
                 player1Name={player1Name}
                 player2Name={player2Name}
             />
-            <button className='hello' onClick={()=>{
-                console.log('User clicked Play from LandingPage');
-                history.push('/play')
-            }}>Play</button>
+            <div className='homePageButtonsContainer'>
+                <Button variant='info' className='homePageButtons' variant="primary" onClick={handleShowModal}>
+                    How To Play
+                </Button>
+                <HowToModal showModal={showModal} handleCloseModal={handleCloseModal}/>
+                <Button variant='warning' className='homePageButtons' onClick={()=>{
+                    console.log('User clicked Play from LandingPage');
+                    history.push('/play')
+                }}>
+                    Play
+                </Button>
+            </div>
         </div>
+        </>
     )
 }
 
