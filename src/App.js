@@ -4,7 +4,6 @@ import LandingPage from './containers/LandingPage/LandingPage';
 import {Switch, Route} from 'react-router-dom';
 import PlayPage from './containers/PlayPage/PlayPage';
 import { useState } from 'react'
-import HowToModal from './components/HowToModal/HowToModal';
 
 function App() {
   const [player1Name, setPlayer1Name] = useState('')
@@ -24,10 +23,6 @@ function App() {
  
       <Route exact path='/play'> 
         <PlayPage player1Name={player1Name} player2Name={player2Name}/>
-      </Route>
- 
-      <Route exact path='/modal'> 
-        <HowToModal/>
       </Route>
  
     </Switch>

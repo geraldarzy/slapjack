@@ -3,33 +3,23 @@ import './HowToModal.css'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const HowToModal = () => {
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+const HowToModal = ({ showModal, handleCloseModal }) => {
+    
     return (
-        <div id='howToModal'>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+        <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+                Close
             </Button>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                </Button>
-                </Modal.Footer>
-            </Modal>
-        </div>
+            <Button variant="primary" onClick={handleCloseModal}>
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
     )
 }
 
