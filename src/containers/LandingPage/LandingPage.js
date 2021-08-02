@@ -22,11 +22,11 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
                 player2Name={player2Name}
             />
             <div className='homePageButtonsContainer'>
-                <Button variant='info' className='homePageButtons' variant="primary" onClick={handleShowModal}>
+                <Button variant='warning' className='homePageButtons' onClick={handleShowModal}>
                     How To Play
                 </Button>
                 <HowToModal showModal={showModal} handleCloseModal={handleCloseModal}/>
-                <Button variant='warning' className='homePageButtons' onClick={()=>{
+                <Button variant='success' className='homePageButtons' onClick={()=>{
                     console.log('User clicked Play from LandingPage');
                     history.push('/play')
                 }}>
