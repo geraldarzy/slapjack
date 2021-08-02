@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import spacekey from '../../pictures/space-key.png'
 import enterkey from '../../pictures/enter-key.png'
+import slappingHand from '../../pictures/slappingHand.png'
 import { height } from 'dom-helpers';
 
 const HowToModal = ({ showModal, handleCloseModal }) => {
@@ -32,11 +33,16 @@ const HowToModal = ({ showModal, handleCloseModal }) => {
             <Modal.Body>
                 To slap the deck of cards, each player has their own keyboard binding.
                 Whenever the player wants to slap the Jack, they must press their respective key. <br/>
-                
-                Player 1 Slap - Spacebar Key <img src={spacekey} style={{width:'5rem', height:'auto'}}/>
+                <div style={{display:'flex'}}>
+                    <div>
+                        Player 1 Slap - Spacebar Key <img src={spacekey} style={{width:'5rem', height:'auto'}}/>
+                        <br/>
+                        Player 2 Slap - Enter Key <img src={enterkey} style={{width:'3rem', height:'auto'}}/>
+                    </div>
+                    <div style={{width:'3rem'}}></div>
+                    <img src={slappingHand} style={{width:'5rem', height:'auto'}}/>
+                </div>
                 <br/>
-                Player 2 Slap - Enter Key <img src={enterkey} style={{width:'3rem', height:'auto'}}/>
-                <br/><br/>
                 If the card shown is not a Jack, to flip the next card over and add the current card to the 
                 pile of seen cards, simply click the 'Next Card' button.
                 <br/>
