@@ -70,8 +70,8 @@ const PlayPage = (props) => {
     // const hearts = [aceHearts, twoHearts, threeHearts, fourHearts, fiveHearts, sixHearts, sevenHearts, eightHearts, nineHearts, tenHearts, jackHearts, queenHearts, kingHearts ];
     // const clubs = [aceClubs, twoClubs, threeClubs, fourClubs, fiveClubs, sixClubs, sevenClubs, eightClubs, nineClubs, tenClubs, jackClubs, queenClubs, kingClubs ];
     // const diamonds = [aceDiamonds, twoDiamonds, threeDiamonds, fourDiamonds, fiveDiamonds, sixDiamonds, sevenDiamonds, eightDiamonds, nineDiamonds, tenDiamonds, jackDiamonds, queenDiamonds, kingDiamonds ];
-    const [player1, setPlayer1] = (useState({'Arzy':0}))
-    const [player2, setPlayer2] = (useState({'Popoy':0}))
+    const [player1Points, setPlayer1Points] = (useState(0))
+    const [player2Points, setPlayer2Points] = (useState(0))
     const [currentCardKey, setCurrentCardKey] = (useState('blankCard'))
     const [currentCardVal, setCurrentCardVal] = (useState(blankCard))
     const [seenDeck,setSeenDeck] = useState({})
@@ -139,22 +139,18 @@ const PlayPage = (props) => {
     }
 
     const changePlayer1PointsBy = (x) =>{
-        let newObj = {};
-        newObj[`${Object.keys(player1)[0]}`] = player1[`${Object.keys(player1)[0]}`] + x
-        setPlayer1(newObj)
+        setPlayer1Points(player1Points + x)
     }
 
     const changePlayer2PointsBy = (x) =>{
-        let newObj = {};
-        newObj[`${Object.keys(player2)[0]}`] = player2[`${Object.keys(player2)[0]}`] + x
-        setPlayer2(newObj)
+        setPlayer2Points(player2Points + x)
     }
     return (
         <>
             {currentCard()}
             <p onClick={retrieveAndRemoveRandom}>Next Card</p>
-            <p>{props.player1Name ? props.player1Name : 'Player 1'}: {Object.values(player1)}</p>
-            <p>{props.player2Name ? props.player2Name : 'Player 2'} {Object.values(player2)}</p>
+            <p>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
+            <p>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
             <p>Seen Deck: {Object.keys(seenDeck).length}</p>
         </>
     )
