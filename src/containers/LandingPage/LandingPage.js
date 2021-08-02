@@ -5,7 +5,10 @@ import  Form  from '../../components/Form/Form';
 const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name}) => {
     const history = useHistory();
     return (
-        <div id='homePage'>
+        <>
+        <div id='homePageBG'>
+        </div>
+        <div id='homePageContent'>
             <h1>Welcome to SlapJack</h1>
             <Form
                 setPlayer1Name={setPlayer1Name}
@@ -18,6 +21,7 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
                 history.push('/play')
             }}>Play</button>
         </div>
+        </>
     )
 }
 
