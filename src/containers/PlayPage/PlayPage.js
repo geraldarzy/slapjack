@@ -114,7 +114,7 @@ const PlayPage = (props) => {
             //     return cards
             // }
     const currentCard = () =>{
-        return <Card image={currentCardVal} name={currentCardKey}/>
+        return <Card image={currentCardVal} name={currentCardKey} nextCard={retrieveAndRemoveRandom}/>
     } 
     const retrieveAndRemoveRandom = () => {
         // retrieve from array but mutate object for best time complexity
@@ -154,7 +154,6 @@ const PlayPage = (props) => {
                     <p className='points'>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
                 </div>
                 {currentCard()}
-                <p onClick={retrieveAndRemoveRandom}>Next Card</p>
             </div>
                 
         </>
