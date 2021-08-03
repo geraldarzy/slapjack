@@ -154,6 +154,18 @@ const PlayPage = (props) => {
     const changePlayer2PointsBy = (x) =>{
         setPlayer2Points(player2Points + x)
     }
+
+    const resetGame = () =>{
+        setDeck({   'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
+        'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
+        'aceHearts':aceHearts, 'twoHearts':twoHearts, 'threeHearts':threeHearts, 'fourHearts':fourHearts, 'fiveHearts':fiveHearts, 'sixHearts':sixHearts, 'sevenHearts':sevenHearts, 'eightHearts':eightHearts, 'nineHearts':nineHearts, 'tenHearts':tenHearts, 'jackHearts':jackHearts, 'queenHearts':queenHearts, 'kingHearts':kingHearts,
+        'aceSpades':aceSpades, 'twoSpades':twoSpades, 'threeSpades':threeSpades, 'fourSpades':fourSpades, 'fiveSpades':fiveSpades, 'sixSpades':sixSpades, 'sevenSpades':sevenSpades, 'eightSpades':eightSpades, 'nineSpades':nineSpades, 'tenSpades':tenSpades, 'jackSpades':jackSpades, 'queenSpades':queenSpades, 'kingSpades':kingSpades 
+        });
+        setPlayer1Points(0);
+        setPlayer2Points(0);
+        setSeenDeck({});
+        setCurrentCardVal(blankCard);
+    }
     return (
         <>
             <div  className='playPage' >
