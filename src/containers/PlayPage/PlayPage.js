@@ -148,11 +148,13 @@ const PlayPage = (props) => {
     return (
         <>
             <div  className='playPage' >
+                <div className='pointsContainer'>
+                    <p className='points'>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
+                    <p>Cards to win: {Object.keys(seenDeck).length}</p>
+                    <p className='points'>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
+                </div>
                 {currentCard()}
                 <p onClick={retrieveAndRemoveRandom}>Next Card</p>
-                <p>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
-                <p>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
-                <p>Seen Deck: {Object.keys(seenDeck).length}</p>
             </div>
                 
         </>

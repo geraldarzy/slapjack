@@ -2,7 +2,19 @@
     background-image: url('../../pictures/playPage-background.png');
     min-height: 100vh;
     min-width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .playPage-content{
     z-index: 2;
+}
+
+.pointsContainer{
+    display: flex;
+}
+.points{
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
