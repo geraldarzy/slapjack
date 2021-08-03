@@ -5,7 +5,7 @@ import './Cardd.css'
 const Cardd = ({image, name, nextCard}) => {
     return (
         <>
-            <img src={image} id={name} onClick={nextCard}/>
+            <img class='playingCard'src={image} id={name} onClick={nextCard}/>
         </>
     )
 }
