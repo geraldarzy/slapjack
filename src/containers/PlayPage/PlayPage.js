@@ -64,6 +64,7 @@ import './PlayPage.css'
 import useKeypress from 'react-use-keypress';
 import spacekey from '../../pictures/space-key.png'
 import enterkey from '../../pictures/enter-key.png'
+import EndGameModal from '../../components/EndGameModal/EndGameModal'
 
 
 const PlayPage = (props) => {
@@ -85,6 +86,11 @@ const PlayPage = (props) => {
 
         }
     ))
+    //modal states
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => setShowModal(false);
+    const handleShowModal = () => setShowModal(true);
+    //
     useKeypress(['Enter', ' '], (e) => {
         if(e.code === 'Space'){
             console.log('Player 1 clicked Space');
@@ -123,6 +129,7 @@ const PlayPage = (props) => {
         // retrieve from array because we can only generate random index number and not random card name
         let index = Object.entries(deck);
         if(index.length < 1){
+            handleShowModal();
             return setCurrentCardKey('blankCard'), setCurrentCardVal(blankCard);
         }
         let randomCardNumber = Math.floor(Math.random() * index.length); 
@@ -156,10 +163,11 @@ const PlayPage = (props) => {
                     <p className='points'>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
                 </div>
                 <div style={{display:'flex', alignItems:'center'}}>
-                    <p className='tips'>Player 1 press <img src={spacekey} style={{width:'5rem', height:'auto'}}/></p>
+                    <p className='tips'>{props.player1Name ? props.player1Name : 'Player 1'} press <img src={spacekey} style={{width:'5rem', height:'auto'}}/></p>
                     {currentCard()}
-                    <p className='tips'>Player 2 press <img src={enterkey} style={{width:'3rem', height:'auto'}}/></p>
+                    <p className='tips'>{props.player2Name ? props.player2Name : 'Player 2'} press <img src={enterkey} style={{width:'3rem', height:'auto'}}/></p>
                 </div>
+                <EndGameModal showModal={showModal} handleCloseModal={handleCloseModal} player1Points={player1Points} player2Points={player2Points} player1Name={props.player1Name ? props.player1Name : 'Player 1'} player2Name={props.player2Name ? props.player2Name : 'Player 2'} />
             </div>
                 
         </>
