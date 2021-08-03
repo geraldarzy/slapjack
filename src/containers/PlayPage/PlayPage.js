@@ -147,11 +147,14 @@ const PlayPage = (props) => {
     }
     return (
         <>
-            {currentCard()}
-            <p onClick={retrieveAndRemoveRandom}>Next Card</p>
-            <p>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
-            <p>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
-            <p>Seen Deck: {Object.keys(seenDeck).length}</p>
+            <div  className='playPage' >
+                {currentCard()}
+                <p onClick={retrieveAndRemoveRandom}>Next Card</p>
+                <p>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
+                <p>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
+                <p>Seen Deck: {Object.keys(seenDeck).length}</p>
+            </div>
+                
         </>
     )
 }

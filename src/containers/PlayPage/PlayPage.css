@@ -1,0 +1,8 @@
+.playPage{
+    background-image: url('../../pictures/playPage-background.png');
+    min-height: 100vh;
+    min-width: auto;
+}
+.playPage-content{
+    z-index: 2;
+}
