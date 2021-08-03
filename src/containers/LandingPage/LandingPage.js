@@ -11,8 +11,8 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
     
-    const playAudio = (audio) => {
-        new Audio(audio).play();
+    const playCardsAudio = () => {
+        new Audio(cardsShuffling).play();
     }
     return (
         <>
@@ -30,11 +30,11 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
                 <Button variant='warning' className='homePageButtons' onClick={handleShowModal}>
                     How To Play
                 </Button>
-                <HowToModal showModal={showModal} handleCloseModal={handleCloseModal}/>
+                <HowToModal playCardsAudio={playCardsAudio} showModal={showModal} handleCloseModal={handleCloseModal}/>
                 <Button variant='success' className='homePageButtons' onClick={()=>{
                     console.log('User clicked Play from LandingPage');
                     history.push('/play');
-                    playAudio(cardsShuffling);
+                    playCardsAudio();
                 }}>
                     Play
                 </Button>

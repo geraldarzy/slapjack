@@ -8,7 +8,7 @@ import enterkey from '../../pictures/enter-key.png'
 import slappingHand from '../../pictures/slappingHand.png'
 import { height } from 'dom-helpers';
 
-const HowToModal = ({ showModal, handleCloseModal }) => {
+const HowToModal = ({ showModal, handleCloseModal, playCardsAudio }) => {
     const history = useHistory();
     
     return (
@@ -60,7 +60,11 @@ const HowToModal = ({ showModal, handleCloseModal }) => {
             <Button variant="secondary" onClick={handleCloseModal}>
                 Close
             </Button>
-            <Button variant="success" onClick={()=>history.push('/play')}>
+            <Button variant="success" onClick={()=>{
+                                                history.push('/play')
+                                                playCardsAudio();
+                                                }
+                                            }>
                 Play
             </Button>
             </Modal.Footer>
