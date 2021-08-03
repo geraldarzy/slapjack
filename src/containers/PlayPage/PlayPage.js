@@ -65,6 +65,9 @@ import useKeypress from 'react-use-keypress';
 import spacekey from '../../pictures/space-key.png'
 import enterkey from '../../pictures/enter-key.png'
 import EndGameModal from '../../components/EndGameModal/EndGameModal'
+// sounds
+import slapSound from '../../sounds/smack.mp3'
+import fanfare from '../../sounds/fanfare.mp3'
 
 
 const PlayPage = (props) => {
@@ -91,7 +94,11 @@ const PlayPage = (props) => {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
     //
+    const playAudio = (audio) => {
+        new Audio(audio).play();
+    }
     useKeypress(['Enter', ' '], (e) => {
+        playAudio(slapSound);
         if(e.code === 'Space'){
             console.log('Player 1 clicked Space');
             if(currentCardKey.includes('jack')){
@@ -129,6 +136,7 @@ const PlayPage = (props) => {
         // retrieve from array because we can only generate random index number and not random card name
         let index = Object.entries(deck);
         if(index.length < 1){
+            playAudio(fanfare);
             handleShowModal();
             return setCurrentCardKey('blankCard'), setCurrentCardVal(blankCard);
         }
