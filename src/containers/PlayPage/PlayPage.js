@@ -62,6 +62,8 @@ import React, { useState } from 'react'
 import Card from '../../components/Card/Cardd';
 import './PlayPage.css'
 import useKeypress from 'react-use-keypress';
+import spacekey from '../../pictures/space-key.png'
+import enterkey from '../../pictures/enter-key.png'
 
 
 const PlayPage = (props) => {
@@ -153,7 +155,11 @@ const PlayPage = (props) => {
                     <p>Cards to win: {Object.keys(seenDeck).length}</p>
                     <p className='points'>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
                 </div>
-                {currentCard()}
+                <div style={{display:'flex', alignItems:'center'}}>
+                    <p className='tips'>Player 1 press <img src={spacekey} style={{width:'5rem', height:'auto'}}/></p>
+                    {currentCard()}
+                    <p className='tips'>Player 2 press <img src={enterkey} style={{width:'3rem', height:'auto'}}/></p>
+                </div>
             </div>
                 
         </>
