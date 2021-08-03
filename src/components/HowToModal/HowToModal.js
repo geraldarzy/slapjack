@@ -44,7 +44,7 @@ const HowToModal = ({ showModal, handleCloseModal }) => {
                 </div>
                 <br/>
                 If the card shown is not a Jack, to flip the next card over and add the current card to the 
-                pile of seen cards, simply click the 'Next Card' button.
+                pile of seen cards, simply click on the cards.
                 <br/>
                 The game ends when there is no more Jacks left in the deck.
                 
