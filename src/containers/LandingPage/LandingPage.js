@@ -4,11 +4,16 @@ import { useHistory } from 'react-router-dom';
 import  Form  from '../../components/Form/Form';
 import Button from 'react-bootstrap/Button';
 import HowToModal from '../../components/HowToModal/HowToModal';
+import cardsShuffling from '../../sounds/cardsShuffling.mp3';
 const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name}) => {
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
+    
+    const playAudio = (audio) => {
+        new Audio(audio).play();
+    }
     return (
         <>
         <div id='homePageBG'>
@@ -28,7 +33,8 @@ const LandingPage = ({setPlayer1Name, setPlayer2Name, player1Name, player2Name})
                 <HowToModal showModal={showModal} handleCloseModal={handleCloseModal}/>
                 <Button variant='success' className='homePageButtons' onClick={()=>{
                     console.log('User clicked Play from LandingPage');
-                    history.push('/play')
+                    history.push('/play');
+                    playAudio(cardsShuffling);
                 }}>
                     Play
                 </Button>
