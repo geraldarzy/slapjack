@@ -68,6 +68,7 @@ import EndGameModal from '../../components/EndGameModal/EndGameModal'
 // sounds
 import slapSound from '../../sounds/smack.mp3'
 import fanfare from '../../sounds/fanfare.mp3'
+import cardsShuffling from '../../sounds/cardsShuffling.mp3'
 
 
 const PlayPage = (props) => {
@@ -173,6 +174,7 @@ const PlayPage = (props) => {
         setPlayer2Points(0);
         setSeenDeck({});
         setCurrentCardVal(blankCard);
+        playAudio(cardsShuffling);
     }
     return (
         <>

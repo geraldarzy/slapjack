@@ -37,7 +37,10 @@ const EndGameModal = ({ resetGame, showModal, handleCloseModal, player1Points, p
             <Button variant="secondary" onClick={handleCloseModal}>
                 Close
             </Button>
-            <Button variant="success" onClick={resetGame && handleCloseModal}>
+            <Button variant="success" onClick={()=>{
+                resetGame();
+                handleCloseModal();
+                }}>
                 Play Again
             </Button>
             </Modal.Footer>
