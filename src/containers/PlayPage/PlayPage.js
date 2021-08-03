@@ -62,6 +62,13 @@ import React, { useState } from 'react'
 import Card from '../../components/Card/Cardd';
 import './PlayPage.css'
 import useKeypress from 'react-use-keypress';
+import spacekey from '../../pictures/space-key.png'
+import enterkey from '../../pictures/enter-key.png'
+import EndGameModal from '../../components/EndGameModal/EndGameModal'
+// sounds
+import slapSound from '../../sounds/smack.mp3'
+import fanfare from '../../sounds/fanfare.mp3'
+import cardsShuffling from '../../sounds/cardsShuffling.mp3'
 
 
 const PlayPage = (props) => {
@@ -83,7 +90,16 @@ const PlayPage = (props) => {
 
         }
     ))
+    //modal states
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => setShowModal(false);
+    const handleShowModal = () => setShowModal(true);
+    //
+    const playAudio = (audio) => {
+        new Audio(audio).play();
+    }
     useKeypress(['Enter', ' '], (e) => {
+        playAudio(slapSound);
         if(e.code === 'Space'){
             console.log('Player 1 clicked Space');
             if(currentCardKey.includes('jack')){
@@ -114,13 +130,15 @@ const PlayPage = (props) => {
             //     return cards
             // }
     const currentCard = () =>{
-        return <Card image={currentCardVal} name={currentCardKey}/>
+        return <Card image={currentCardVal} name={currentCardKey} nextCard={retrieveAndRemoveRandom}/>
     } 
     const retrieveAndRemoveRandom = () => {
         // retrieve from array but mutate object for best time complexity
         // retrieve from array because we can only generate random index number and not random card name
         let index = Object.entries(deck);
         if(index.length < 1){
+            playAudio(fanfare);
+            handleShowModal();
             return setCurrentCardKey('blankCard'), setCurrentCardVal(blankCard);
         }
         let randomCardNumber = Math.floor(Math.random() * index.length); 
@@ -145,13 +163,35 @@ const PlayPage = (props) => {
     const changePlayer2PointsBy = (x) =>{
         setPlayer2Points(player2Points + x)
     }
+
+    const resetGame = () =>{
+        setDeck({   'aceDiamonds':aceDiamonds, 'twoDiamonds':twoDiamonds, 'threeDiamonds':threeDiamonds, 'fourDiamonds':fourDiamonds, 'fiveDiamonds':fiveDiamonds, 'sixDiamonds':sixDiamonds, 'sevenDiamonds':sevenDiamonds, 'eightDiamonds':eightDiamonds, 'nineDiamonds':nineDiamonds, 'tenDiamonds':tenDiamonds, 'jackDiamonds':jackDiamonds, 'queenDiamonds':queenDiamonds, 'kingDiamonds':kingDiamonds,
+        'aceClubs':aceClubs, 'twoClubs':twoClubs, 'threeClubs':threeClubs, 'fourClubs':fourClubs, 'fiveClubs':fiveClubs, 'sixClubs':sixClubs, 'sevenClubs':sevenClubs, 'eightClubs':eightClubs, 'nineClubs':nineClubs, 'tenClubs':tenClubs, 'jackClubs':jackClubs, 'queenClubs':queenClubs, 'kingClubs':kingClubs,
+        'aceHearts':aceHearts, 'twoHearts':twoHearts, 'threeHearts':threeHearts, 'fourHearts':fourHearts, 'fiveHearts':fiveHearts, 'sixHearts':sixHearts, 'sevenHearts':sevenHearts, 'eightHearts':eightHearts, 'nineHearts':nineHearts, 'tenHearts':tenHearts, 'jackHearts':jackHearts, 'queenHearts':queenHearts, 'kingHearts':kingHearts,
+        'aceSpades':aceSpades, 'twoSpades':twoSpades, 'threeSpades':threeSpades, 'fourSpades':fourSpades, 'fiveSpades':fiveSpades, 'sixSpades':sixSpades, 'sevenSpades':sevenSpades, 'eightSpades':eightSpades, 'nineSpades':nineSpades, 'tenSpades':tenSpades, 'jackSpades':jackSpades, 'queenSpades':queenSpades, 'kingSpades':kingSpades 
+        });
+        setPlayer1Points(0);
+        setPlayer2Points(0);
+        setSeenDeck({});
+        setCurrentCardVal(blankCard);
+        playAudio(cardsShuffling);
+    }
     return (
         <>
-            {currentCard()}
-            <p onClick={retrieveAndRemoveRandom}>Next Card</p>
-            <p>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
-            <p>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
-            <p>Seen Deck: {Object.keys(seenDeck).length}</p>
+            <div  className='playPage' >
+                <div className='pointsContainer'>
+                    <p className='points'>{props.player1Name ? props.player1Name : 'Player 1'}: {player1Points}</p>
+                    <p>Cards to win: {Object.keys(seenDeck).length}</p>
+                    <p className='points'>{props.player2Name ? props.player2Name : 'Player 2'}: {player2Points}</p>
+                </div>
+                <div style={{display:'flex', alignItems:'center'}}>
+                    <p className='tips'>{props.player1Name ? props.player1Name : 'Player 1'} press <img src={spacekey} style={{width:'5rem', height:'auto'}}/></p>
+                    {currentCard()}
+                    <p className='tips'>{props.player2Name ? props.player2Name : 'Player 2'} press <img src={enterkey} style={{width:'3rem', height:'auto'}}/></p>
+                </div>
+                <EndGameModal resetGame={resetGame} showModal={showModal} handleCloseModal={handleCloseModal} player1Points={player1Points} player2Points={player2Points} player1Name={props.player1Name ? props.player1Name : 'Player 1'} player2Name={props.player2Name ? props.player2Name : 'Player 2'} />
+            </div>
+                
         </>
     )
 }

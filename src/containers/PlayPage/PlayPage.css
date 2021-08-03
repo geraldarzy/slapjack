@@ -1,0 +1,27 @@
+.playPage{
+    background-image: url('../../pictures/playPage-background.png');
+    min-height: 100vh;
+    min-width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.playPage-content{
+    z-index: 2;
+}
+
+.pointsContainer{
+    display: flex;
+}
+.points{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.tips{
+    margin: 5rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+}
