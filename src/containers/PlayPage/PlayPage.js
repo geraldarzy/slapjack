@@ -179,7 +179,7 @@ const PlayPage = (props) => {
                     {currentCard()}
                     <p className='tips'>{props.player2Name ? props.player2Name : 'Player 2'} press <img src={enterkey} style={{width:'3rem', height:'auto'}}/></p>
                 </div>
-                <EndGameModal showModal={showModal} handleCloseModal={handleCloseModal} player1Points={player1Points} player2Points={player2Points} player1Name={props.player1Name ? props.player1Name : 'Player 1'} player2Name={props.player2Name ? props.player2Name : 'Player 2'} />
+                <EndGameModal resetGame={resetGame} showModal={showModal} handleCloseModal={handleCloseModal} player1Points={player1Points} player2Points={player2Points} player1Name={props.player1Name ? props.player1Name : 'Player 1'} player2Name={props.player2Name ? props.player2Name : 'Player 2'} />
             </div>
                 
         </>

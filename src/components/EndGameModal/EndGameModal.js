@@ -8,7 +8,7 @@ import enterkey from '../../pictures/enter-key.png'
 import slappingHand from '../../pictures/slappingHand.png'
 import { height } from 'dom-helpers';
 
-const EndGameModal = ({ showModal, handleCloseModal, player1Points, player2Points, player1Name, player2Name }) => {
+const EndGameModal = ({ resetGame, showModal, handleCloseModal, player1Points, player2Points, player1Name, player2Name }) => {
     const history = useHistory();
 
     const determineWinner = () =>{
@@ -37,8 +37,8 @@ const EndGameModal = ({ showModal, handleCloseModal, player1Points, player2Point
             <Button variant="secondary" onClick={handleCloseModal}>
                 Close
             </Button>
-            <Button variant="success" onClick={()=>history.push('/play')}>
-                Play
+            <Button variant="success" onClick={resetGame && handleCloseModal}>
+                Play Again
             </Button>
             </Modal.Footer>
         </Modal>
