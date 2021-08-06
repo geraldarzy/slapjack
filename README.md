@@ -12,8 +12,8 @@
 #### How do we slap the Jack?
 - If the current card is a Jack, each player must press their respective button. Player 1 is 'Spacebar' and Player 2 is 'Enter'
 
-Checkout my portfolio sites for more of my projects. <a href='https://www.geraldarzola.com/'>Open in new tab</a> <br/>
-Connect with me on Linked In. <a href='https://www.linkedin.com/in/geraldarzola/'>Open in new tab</a>
+Checkout my portfolio site for more of my projects. <a href='https://www.geraldarzola.com/'><em>Portfolio</em></a> <br/>
+Connect with me on Linked In. <a href='https://www.linkedin.com/in/geraldarzola/'><em>Linked In</em></a>
 
 ## Landing Page ![Landing Page](https://user-images.githubusercontent.com/75591341/128453440-004cbcaa-d412-46fc-8f85-e803c79bfb74.png)
 ## Tutorial Page ![How To](https://user-images.githubusercontent.com/75591341/128453483-b8394167-c178-40f5-a862-2923c94719aa.png)
@@ -21,10 +21,10 @@ Connect with me on Linked In. <a href='https://www.linkedin.com/in/geraldarzola/
 
 
 
-##### Contributing
+### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
 
-##### MIT License
+### MIT License
 Copyright (c) 2021 Gerald Arzola
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
